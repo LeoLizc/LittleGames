@@ -276,7 +276,7 @@ public class Main {
 //*********************************************************SELECCIONA MODO DE JUEGO*******************************************************************
                 
 //******************************************************SELECCIONA DIFICULTAD DE JUEGO********************************************************************
-                nivel=JOptionPane.showOptionDialog(null, "Elija que jugador desea ser:  ", "         Triqui", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, dificultad, dificultad[0]);
+                nivel=JOptionPane.showOptionDialog(null, "Elija la dificultad:  ", "         Triqui", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, dificultad, dificultad[0]);
 //******************************************************SELECCIONA DIFICULTAD DE JUEGO********************************************************************
                 
                 if(nivel!=0){
@@ -286,12 +286,12 @@ public class Main {
                     if(us<50){
                         do{
                             pos= (int) (Math.random()*10);
-                        }while(pos%2==1|pos==4|pos>=9);
+                        }while(pos%2==1||pos==4||pos>=9);
                     }else{
-                        if (us>=50&us<75) {
+                        if (us>=50&&us<75) {
                             do{
                                 pos= (int) (Math.random()*10);
-                            }while(pos%2==0|pos>=9);
+                            }while(pos%2==0||pos>=9);
                         }else{
                             pos=4;   
                         }
@@ -334,7 +334,7 @@ public class Main {
                         if(turno==1+modo){
                             us1=pos;
                         }
-                        if(turno==3&modo==0){
+                        if(turno==3&&modo==0){
                             us2=pos;
                         }
                     }else{
@@ -354,10 +354,10 @@ public class Main {
                         if (modo==1) {
 
                             //si Juego en lado
-                            if (mi%2==1 &turno!=1&turno%2==1) {
-                                if (us1!=4 & us1!=8-mi & us1!=mi+1+mi/3%2*2 & us1!=mi-1-mi/3%2*2){
+                            if (mi%2==1 &&turno!=1&&turno%2==1) {
+                                if (us1!=4 && us1!=8-mi && us1!=mi+1+mi/3%2*2 && us1!=mi-1-mi/3%2*2){
                                     if (turno==3){
-                                        if ((mi+1+mi/3%2*2)%3==us1%3|(mi+1+mi/3%2*2)/3==us1/3){
+                                        if ((mi+1+mi/3%2*2)%3==us1%3||(mi+1+mi/3%2*2)/3==us1/3){
                                             pos=(mi+1+mi/3%2*2);
                                         }else{
                                             pos=(mi-1-mi/3%2*2);
@@ -369,7 +369,7 @@ public class Main {
                                     if (us1==4) {
                                         pos=(mi+1+mi/3%2*2);
                                     }
-                                    if (us1!=4&us1!=8-mi) {
+                                    if (us1!=4&&us1!=8-mi) {
                                         pos=8-mi;
                                     }
                                 }
@@ -377,7 +377,7 @@ public class Main {
 
 
                             //Si juego en centro
-                            if (mi==4&turno==3) {
+                            if (mi==4&&turno==3) {
 
                                 //si juega en esquina
                                 if (us1%2==0){
@@ -390,11 +390,11 @@ public class Main {
                             }
 
                             //Si juego en la esquina
-                            if(mi%2==0&mi!=4){
+                            if(mi%2==0&&mi!=4){
 
                                 //usuario opuesto
                                 if (turno==3) {
-                                    if(us1==8-mi&turno%2==1){
+                                    if(us1==8-mi&&turno%2==1){
                                         for (int i=0; i<9; i=i+2+i%3){
                                                 if(casillas[i]==0){
                                                         pos=i;
@@ -402,28 +402,28 @@ public class Main {
                                         }
                                     }
                                     //usuario contiguo
-                                    if(us1%2==0&us1!=8-mi&turno%2==1){
+                                    if(us1%2==0&&us1!=8-mi&&turno%2==1){
                                         pos=8-mi;
                                     }
                                     //usuario lado
-                                    if(us1%2==1&turno%2==1){
+                                    if(us1%2==1&&turno%2==1){
                                         pos=4;
                                     }
                                     //usuario centro
-                                    if(us1==4&turno%2==1){
+                                    if(us1==4&&turno%2==1){
                                         pos=8-mi;
                                         //System.out.println("centro:"+(pos+1)+"casilla:"+casillas[pos]);
                                     }
                                 }else{
                                     //System.out.println("mal");
-                                    if (turno==5&us1%2==1) {
+                                    if (turno==5&&us1%2==1) {
                                         for (int i = 0; i < 9; i=i+2+i%3) {
-                                            if (casillas[i]==0&(casillas[1%3]!=casillas[i%3+3]&casillas[i%3+6]!=casillas[i%3]&casillas[i%3+3]!=casillas[i%3+6]|casillas[(i/3)*3]!=casillas[(i/3)*3+1]&casillas[(i/3)*3]!=casillas[(i/3)*3+2]&casillas[(i/3)*3+1]!=casillas[(i/3)*3+2])) {
+                                            if (casillas[i]==0&&(casillas[1%3]!=casillas[i%3+3]&&casillas[i%3+6]!=casillas[i%3]&&casillas[i%3+3]!=casillas[i%3+6]||casillas[(i/3)*3]!=casillas[(i/3)*3+1]&&casillas[(i/3)*3]!=casillas[(i/3)*3+2]&&casillas[(i/3)*3+1]!=casillas[(i/3)*3+2])) {
                                                 pos=8-i;
                                             }
                                         }
                                     }
-                                    if (turno==5&us1==8-mi){
+                                    if (turno==5&&us1==8-mi){
                                         for (int i=0; i<9; i=i+2+i%3){
                                             if(casillas[i]==0){
                                                 pos=i;
@@ -438,9 +438,9 @@ public class Main {
                                 if(us1==4){
                                     do {
                                         pos=(int) (Math.random()*10);
-                                    } while (pos%2!=0|pos==4); 
+                                    } while (pos%2!=0||pos==4); 
                                 }
-                                if(us1%2==0&us1!=4){
+                                if(us1%2==0&&us1!=4){
                                     pos=4;
                                 }
                                 if (us1%2==1) {
@@ -451,14 +451,14 @@ public class Main {
                                 if (us1==4) {
                                     do {
                                         pos=(int) (Math.random()*10);
-                                    } while (pos%2==1|pos==9|casillas[pos]!=0);
+                                    } while (pos%2==1||pos==9||casillas[pos]!=0);
                                 }
-                                if(us1%2==0&us1!=4&us2==8-us1){
+                                if(us1%2==0&&us1!=4&&us2==8-us1){
                                     do {
                                         pos=(int) (Math.random()*10);
-                                    } while (pos%2==0|pos==9);
+                                    } while (pos%2==0||pos==9);
                                 }
-                                if (us1%2==1&us2==8-us1) {
+                                if (us1%2==1&&us2==8-us1) {
                                     pos=4;
                                 }
                             }
@@ -473,13 +473,13 @@ public class Main {
                         if(turno>3+modo){//pato
                             //System.out.println("mas4");
                             for (int i = 0; i < 7; i=i+3) {
-                                if (casillas[i]==casillas[i+1]&casillas[i]!=0&casillas[i+2]==0|casillas[i]==casillas[i+2]&casillas[i]!=0&casillas[i+1]==0|casillas[i+1]!=0&casillas[i+1]==casillas[i+2]&casillas[i]==0) {
+                                if (casillas[i]==casillas[i+1]&&casillas[i]!=0&&casillas[i+2]==0||casillas[i]==casillas[i+2]&&casillas[i]!=0&&casillas[i+1]==0||casillas[i+1]!=0&&casillas[i+1]==casillas[i+2]&&casillas[i]==0) {
                                     //gan=true;
                                     for (int l = i; l <=i+2; l++) {
 
                                     }
                                     if(turno%2==modo){//pato
-                                        if(casillas[i]==modo|casillas[i+1]==modo){
+                                        if(casillas[i]==modo||casillas[i+1]==modo){
                                           //      System.out.println("casi casi3");
                                                 for (int l = i; l <=i+2; l++) {
                                                         if(casillas[l]==0){
@@ -495,9 +495,9 @@ public class Main {
                                 }
                             }
 
-                            if(fila&peligro2){
+                            if(fila&&peligro2){
                                 for (int i = 0; i < 7; i=i+3) {
-                                    if (casillas[i]==casillas[i+1]&casillas[i]!=0&casillas[i+2]==0|casillas[i]==casillas[i+2]&casillas[i]!=0&casillas[i+1]==0|casillas[i+1]!=0&casillas[i+1]==casillas[i+2]&casillas[i]==0) {
+                                    if (casillas[i]==casillas[i+1]&&casillas[i]!=0&&casillas[i+2]==0||casillas[i]==casillas[i+2]&&casillas[i]!=0&&casillas[i+1]==0||casillas[i+1]!=0&&casillas[i+1]==casillas[i+2]&&casillas[i]==0) {
                                         for (int l = i; l <=i+2; l++) {
                                             if(casillas[l]==0){
                                                 pos=l;
@@ -510,9 +510,9 @@ public class Main {
 
                             //columnas
                             for (int i = 0; i < 3; i++) {
-                                if (casillas[i]==casillas[i+3]&casillas[i]!=0&casillas[i+6]==0|casillas[i]==casillas[i+6]&casillas[i]!=0&casillas[i+3]==0|casillas[i+3]!=0&casillas[i+3]==casillas[i+6]&casillas[i]==0) {
+                                if (casillas[i]==casillas[i+3]&&casillas[i]!=0&&casillas[i+6]==0||casillas[i]==casillas[i+6]&&casillas[i]!=0&&casillas[i+3]==0||casillas[i+3]!=0&&casillas[i+3]==casillas[i+6]&&casillas[i]==0) {
                                     if(turno%2==modo){//pato
-                                        if(casillas[i]==modo|casillas[i+3]==modo){
+                                        if(casillas[i]==modo||casillas[i+3]==modo){
                                      //        System.out.println("casi casi3");
                                             for (int l = i; l <=i+6; l=l+3) {
                                                 if(casillas[l]==0){
@@ -528,9 +528,9 @@ public class Main {
                                 }
                             }
 
-                            if(columna&peligro2){
+                            if(columna&&peligro2){
                                 for (int i = 0; i < 3; i++) {
-                                    if (casillas[i]==casillas[i+3]&casillas[i]!=0&casillas[i+6]==0|casillas[i]==casillas[i+6]&casillas[i]!=0&casillas[i+3]==0|casillas[i+3]!=0&casillas[i+3]==casillas[i+6]&casillas[i]==0) {
+                                    if (casillas[i]==casillas[i+3]&&casillas[i]!=0&&casillas[i+6]==0||casillas[i]==casillas[i+6]&&casillas[i]!=0&&casillas[i+3]==0||casillas[i+3]!=0&&casillas[i+3]==casillas[i+6]&&casillas[i]==0) {
                                         for (int l = i; l <=i+6; l=l+3) {
                                             if(casillas[l]==0){
                                                 pos=l;
@@ -542,9 +542,9 @@ public class Main {
                             }
                             //diagonal
                             for (int i = 0; i < 3; i=i+2) {
-                                if (casillas[i]==casillas[4]&casillas[i]!=0&casillas[8-i]==0|casillas[8-i]==casillas[i]&casillas[i]!=0&casillas[4]==0|casillas[4]!=0&casillas[4]==casillas[8-i]&casillas[i]==0) {
+                                if (casillas[i]==casillas[4]&&casillas[i]!=0&&casillas[8-i]==0||casillas[8-i]==casillas[i]&&casillas[i]!=0&&casillas[4]==0||casillas[4]!=0&&casillas[4]==casillas[8-i]&&casillas[i]==0) {
                                     if(turno%2==modo){
-                                        if(casillas[i]==modo|casillas[4]==modo){
+                                        if(casillas[i]==modo||casillas[4]==modo){
                               //              System.out.println("casi casi3");
                                             for (int l = i; l <=8-i; l=l+4-i) {
                                                 if(casillas[l]==0){
@@ -560,9 +560,9 @@ public class Main {
                                 }
                             }
 
-                            if(diagonal&peligro2){
+                            if(diagonal&&peligro2){
                                 for (int i = 0; i < 3; i=i+2) {
-                                    if (casillas[i]==casillas[4]&casillas[i]!=0&casillas[8-i]==0|casillas[8-i]==casillas[i]&casillas[i]!=0&casillas[4]==0|casillas[4]!=0&casillas[4]==casillas[8-i]&casillas[i]==0) {
+                                    if (casillas[i]==casillas[4]&&casillas[i]!=0&&casillas[8-i]==0||casillas[8-i]==casillas[i]&&casillas[i]!=0&&casillas[4]==0||casillas[4]!=0&&casillas[4]==casillas[8-i]&&casillas[i]==0) {
                                         for (int l = i; l <=8-i; l=l+4-i) {
                                             if(casillas[l]==0){
                                                 pos=l;
@@ -574,7 +574,7 @@ public class Main {
                             }
 
                         }
-                        if(turno==9&modo==1){
+                        if(turno==9&&modo==1){
                             for (int i = 0; i < 9; i++) {
                                 if (casillas[i]==0) {
                         //            System.out.println("coros"+i);
